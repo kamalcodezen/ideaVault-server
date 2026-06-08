@@ -41,6 +41,7 @@ async function run() {
         app.post("/ideas", async (req, res) => {
             const ideasData = req.body
             const result = await ideasCollection.insertOne(ideasData);
+            // console.log(result,"idea added")
             res.json(result)
         })
 
@@ -85,6 +86,19 @@ async function run() {
         app.delete("/comments/:id", async (req, res) => {
             const { id } = req.params
             const result = await commentCollection.deleteOne({ _id: new ObjectId(id) })
+            res.json(result)
+        })
+
+
+        // my ideas update data edit button
+        app.patch("/ideas/:id", async (req, res) => {
+            const { id } = req.params
+            const updatedData = req.body
+            const result = await ideasCollection.updateOne(
+                { _id: new ObjectId(id) },
+                { $set: updatedData }
+            )
+            // console.log(result, "ideaupdate")
             res.json(result)
         })
 
