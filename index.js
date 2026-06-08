@@ -75,13 +75,36 @@ async function run() {
 
 
         // all ideas data api
+        // app.get("/ideas", async (req, res) => {
+        //     const result = await ideasCollection.find().toArray()
+        //     res.json(result)
+        // })
+        // all ideas data and search or filter
         app.get("/ideas", async (req, res) => {
-            const result = await ideasCollection.find().toArray()
-            res.json(result)
-        })
+            const { search, category } = req.query;
+
+            let query = {};
+
+            if (search) {
+                query.title = {
+                    $regex: search,
+                    $options: "i",
+                };
+            }
+
+            if (category) {
+                query.category = category;
+            }
+
+            const result = await ideasCollection.find(query).toArray();
+
+            res.json(result);
+        });
+
+
 
         // ideas post (add-idea)
-        app.post("/ideas", async (req, res) => {
+        app.post("/ideas", verifyToken, async (req, res) => {
             const ideasData = req.body
             const result = await ideasCollection.insertOne(ideasData);
             // console.log(result,"idea added")
@@ -154,7 +177,7 @@ async function run() {
 
 
         // my interaction page user comment get 
-        app.get("/comments/user/:userId", async (req, res) => {
+        app.get("/comments/user/:userId", verifyToken, async (req, res) => {
             const { userId } = req.params;
 
             const result = await commentCollection
@@ -163,6 +186,9 @@ async function run() {
 
             res.json(result);
         });
+
+
+
 
 
 
