@@ -40,15 +40,15 @@ app.post("/api/email-send", async (req, res) => {
         }
 
         const mailOptions = {
-            from: `"Design Vault" <${process.env.USER_EMAIL}>`,
+            from: `"Idea Vault" <${process.env.USER_EMAIL}>`,
             to: email,
-            subject: "Welcome to Design Vault! 🌸 Your creative journey starts here",
+            subject: "Welcome to Idea Vault! 🌸 Your creative journey starts here",
             html: `
         <div style="background-color: #f4f6f8; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
             <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eef2f5;">
                 
                 <div style="background: linear-gradient(135deg, #15508b 0%, #1c6ab7 50%, #f97316 100%); padding: 40px 30px; text-align: center;">
-                    <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">Design Vault</h1>
+                    <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">Idea Vault</h1>
                     <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">Where Ideas Meet Reality ✨</p>
                 </div>
 
@@ -56,7 +56,7 @@ app.post("/api/email-send", async (req, res) => {
                     <h2 style="color: #1e293b; margin-top: 0; margin-bottom: 16px; font-size: 22px; font-weight: 600;">Hello ${name}, 👋</h2>
                     
                     <p style="color: #475569; font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
-                        Thank you for creating an account at <strong>Design Vault</strong>. We are absolutely thrilled to have you join our creative design and tech community!
+                        Thank you for creating an account at <strong>Idea Vault</strong>. We are absolutely thrilled to have you join our creative Idea and tech community!
                     </p>
 
                     <p style="color: #475569; font-size: 16px; line-height: 1.6; margin-bottom: 32px;">
@@ -72,12 +72,12 @@ app.post("/api/email-send", async (req, res) => {
                     <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-bottom: 25px;" />
 
                     <p style="color: #64748b; font-size: 14px; margin-bottom: 5px; line-height: 1.5;">Best regards,</p>
-                    <p style="color: #1e293b; font-size: 15px; font-weight: 600; margin-top: 0;">Team Design Vault</p>
+                    <p style="color: #1e293b; font-size: 15px; font-weight: 600; margin-top: 0;">Team Idea Vault</p>
                 </div>
 
                 <div style="background-color: #f8fafc; padding: 20px 35px; text-align: center; border-top: 1px solid #e2e8f0;">
                     <p style="color: #94a3b8; font-size: 12px; margin: 0;">
-                        © 2026 Design Vault. All rights reserved.
+                        © 2026 Idea Vault. All rights reserved.
                     </p>
                     <p style="color: #94a3b8; font-size: 12px; margin: 5px 0 0 0;">
                         If you have any questions, feel free to reply to this email.
@@ -304,7 +304,7 @@ run().catch(console.dir);
 
 
 app.get("/", (req, res) => {
-    res.send("designVault server is running fine~!")
+    res.send("IdeaVault server is running fine~!")
 })
 
 app.listen(port, () => {
